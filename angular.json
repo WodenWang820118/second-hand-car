@@ -100,8 +100,24 @@
             ],
             "scripts": []
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "browserTarget": "second-hand-car:build",
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "browserTarget": "second-hand-car:build"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
