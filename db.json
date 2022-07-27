@@ -1,0 +1,28 @@
+{
+    "cars": [
+        {
+            "id": 1,
+            "name": "BMW",
+            "price": "100000",
+            "description":"剛買一年左右，想換新車故便宜出售，意者請洽xxxx-xxx-xxx。",
+            "year": "2018",
+            "image": "assets/baby-car.png"
+        },
+        {
+            "id": 2,
+            "name": "Audi",
+            "price": "200000",
+            "description":"剛買一年左右，想換新車故便宜出售，意者請洽xxxx-xxx-xxx。",
+            "year": "2019",
+            "image": "assets/sedan.png"
+        },
+        {
+            "id": 3,
+            "name": "Mercedes",
+            "price": "300000",
+            "description":"剛買一年左右，想換新車故便宜出售，意者請洽xxxx-xxx-xxx。",
+            "year": "2020",
+            "image": "assets/sport-car.png"
+        }
+    ]
+}

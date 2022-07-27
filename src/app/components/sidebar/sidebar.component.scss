@@ -1,0 +1,15 @@
+.sidebar {
+    // mat-expansion-panel {
+
+    // }
+
+    &__price {
+        input {
+            width: 60%;
+            padding: 3px;
+            border-radius: 5px;
+            border-style: solid;
+            border-width: 1px;
+        }
+    }
+}

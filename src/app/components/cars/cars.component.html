@@ -1,0 +1,26 @@
+<div class="cars">
+    <div *ngFor="let car of cars">
+        <mat-card class="mb-8">
+            <div class="flex h-fit">
+                <div class="cars__image w-1/2">
+                    <img src="{{car.image}}">
+                </div>
+                <div class="w-1/2 pl-5">
+                    <div class="flex align-middle justify-start">
+                        <mat-card-title class="pt-1 pb-auto">{{ car['name'] }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ${{ car['price'] }}</mat-card-title>
+                    </div>
+                    <br>
+                    <div class="mb-28">
+                        <p>{{ car['description'] }}</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="flex justify-between">
+                            <p class="cars__chip">NEW</p>
+                        </div>
+                        <p>Last Edited</p>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>    
+</div>
