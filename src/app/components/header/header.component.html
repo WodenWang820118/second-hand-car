@@ -6,7 +6,8 @@
         <mat-expansion-panel-header class="mat-header" [collapsedHeight]="'60px'" [expandedHeight]="'60px'">
           <mat-panel-title class="title">
             <img class="w-7 h-7" src="assets/brand_icon.svg" alt="brand_icon" />
-            <p>{{ brandSelected[0]? brandSelected[0].slice(0,3)+'..' : 'Brand' }}</p>
+            <p>{{ brandSelected[0]? (brandSelected.length===1 && brandSelected[0].length<6 ?
+              brandSelected[0].slice(0,5) : brandSelected[0].slice(0,3)+'..' ) : 'Brand' }}</p>
             <mat-icon class="mat-icon">{{ brand.expanded ? "expand_less" : "chevron_right" }}</mat-icon>
           </mat-panel-title>
         </mat-expansion-panel-header>
@@ -31,8 +32,8 @@
             <img class="w-11 h-11" src="assets/cartype_icon.svg" alt="cartype_icon" />
             <p [ngClass]="{'font-bold' : typeSelected[0]}"
               [ngStyle]="{'font-size' : typeSelected[0]?'20px':null}">
-              {{ typeSelected[0]? (typeSelected.length===1?
-                typeSelected[0].slice(0,3) : typeSelected[0].slice(0,2)+'..' ): 'Type' }}</p>
+              {{ typeSelected[0]? (typeSelected.length===1 ?
+                typeSelected[0].slice() : typeSelected[0].slice(0,2)+'..' ): 'Type' }}</p>
             <mat-icon class="mat-icon">{{ type.expanded ? "expand_less" : "chevron_right" }}</mat-icon>
           </mat-panel-title>
         </mat-expansion-panel-header>
