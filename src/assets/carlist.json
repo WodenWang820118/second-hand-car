@@ -1,0 +1,23 @@
+{
+  "brand": [
+    "Alpha Romeo", "Aston Martin", "Audi",
+    "Bently", "BMW", "Bugatti", "Buick",
+    "Cadillac", "Chery", "Chrysler", "Citroen", "CMC",
+    "Daihatsu", "DFSK", "DS",
+    "Ferrari", "Fiat", "Ford",
+    "Honda", "Hyundai",
+    "Infiniti", "IVECO",
+    "Jaguar",
+    "KIA", "Koenigsegg",
+    "Lamborghini", "Land Rover", "Lotus", "Luxgen",
+    "Mahindra", "Maserati", "Mazda", "McLaren", "Mercedes-Benz", "Mini", "Mistubishi", "Morgon",
+    "Nissan",
+    "Opel",
+    "Pagani", "Peugot", "Porshe", "Proton",
+    "Renault", "Rolls Royce",
+    "SAAB", "Skoda", "Smart", "SsangYong", "Subaru", "Suzuki",
+    "Tesla", "tobe", "Toyata",
+    "Volkswagon", "Volvo"
+  ],
+  "type": ["轎車", "跑車", "休旅車","貨車","吉普車","其他"]
+}
