@@ -1,0 +1,74 @@
+p { margin: 0; }
+
+.bk {
+  @apply absolute top-1/2 left-1/2 flex flex-row justify-center gap-2;
+  transform: translate(-50%, -50%);
+  width: 560px;
+  height:100px;
+  border-radius: 4px;
+  background-color: rgba($color: #e5e5e5, $alpha: 0.6);
+
+  .mat-header, .search {
+    box-shadow: inset 0px -4px 0px #256506;
+    border-radius: 4px;
+  }
+  .mat-header {
+    padding: 0 15px;
+    width: 170px;
+    p { font-size: 22px; }
+    .title {
+      @apply flex justify-between m-0;
+      .mat-icon {
+        height: 22px;
+        margin-left: 10px;
+      }
+    }
+  }
+  .search {
+    @apply relative flex flex-row items-center justify-center;
+    gap: 10px;
+    top: 22%;
+    width: 150px;
+    height: 58px;
+    background-color: #348600;
+    p {
+      color: #ffffff;
+      font-size: 20px;
+    }
+  }
+  ::ng-deep .mat-expansion-panel-body {
+    @apply p-0 h-auto;
+    background-color: #f8f8f8;
+  }
+  .drop-down {
+    @apply flex flex-col font-medium;
+    .search-input {
+      @apply w-28 h-3/4 p-1;
+      border: 1px solid #cecece;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar { display: none; }
+    .scroll {
+      @apply h-fit max-h-40 overflow-y-scroll overflow-x-hidden;
+      .alphabet {
+        @apply h-full text-center;
+        width: 10%;
+        background-color: #ebebeb;
+      }
+      .checkbox-wrapper {
+        @apply flex flex-row items-center h-5;
+        .checkbox {
+          @apply h-full overflow-hidden bg-white;
+          ::ng-deep .mat-checkbox-inner-container {
+            margin: 2px 5px auto 10px;
+            width: 14px;
+            height: 14px;
+          }
+          ::ng-deep .mat-checkbox-layout .mat-checkbox-label { line-height: 20px; }
+        }
+      }
+      .brand-checkbox { width: 90%; }
+      .type-checkbox { @apply w-full font-bold; }
+    }
+  }
+}

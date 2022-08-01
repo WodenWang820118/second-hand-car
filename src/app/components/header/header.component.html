@@ -1,3 +1,53 @@
-<div class="mb-10">
-    <img src="assets/header.svg" alt="">
+<div class="mb-10 relative">
+  <img src="assets/header.svg" alt="" />
+  <div class="bk">
+    <div>
+      <mat-expansion-panel #brand class="top-5 mat-elevation-z0" hideToggle="true">
+        <mat-expansion-panel-header class="mat-header" [collapsedHeight]="'60px'" [expandedHeight]="'60px'">
+          <mat-panel-title class="title">
+            <img class="w-7 h-7" src="assets/brand_icon.svg" alt="brand_icon" />
+            <p>{{ brandSelected[0]? brandSelected[0].slice(0,3)+'..' : 'Brand' }}</p>
+            <mat-icon class="mat-icon">{{ brand.expanded ? "expand_less" : "chevron_right" }}</mat-icon>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="drop-down">
+          <div class="flex flex-row justify-around items-center h-7 px-1">
+            <p class="text-xs">Search</p>
+            <input type="text" class="search-input" (keyup)="filterCars($event)"/>
+          </div>
+          <div class="scroll">
+            <div *ngFor="let car of brandList; let i=index" class="checkbox-wrapper brand-filter">
+              <p class="alphabet"></p>
+              <mat-checkbox class="checkbox brand-checkbox" (change)="onSelect($event, i, 'brand')">{{car}}</mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </div>
+    <div>
+      <mat-expansion-panel #type class="top-5 mat-elevation-z0" hideToggle="true">
+        <mat-expansion-panel-header class="mat-header" [collapsedHeight]="'60px'" [expandedHeight]="'60px'">
+          <mat-panel-title class="title">
+            <img class="w-11 h-11" src="assets/cartype_icon.svg" alt="cartype_icon" />
+            <p [ngClass]="{'font-bold' : typeSelected[0]}"
+              [ngStyle]="{'font-size' : typeSelected[0]?'20px':null}">
+              {{ typeSelected[0]? (typeSelected.length===1?
+                typeSelected[0].slice(0,3) : typeSelected[0].slice(0,2)+'..' ): 'Type' }}</p>
+            <mat-icon class="mat-icon">{{ type.expanded ? "expand_less" : "chevron_right" }}</mat-icon>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="drop-down">
+          <div class="scroll">
+            <div *ngFor="let car of typeList; let i=index" class="checkbox-wrapper">
+              <mat-checkbox class="checkbox type-checkbox" (change)="onSelect($event, i, 'type')">{{car}}</mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </div>
+    <button class="search">
+      <img class="w-6 h-6" src="assets/search_icon.svg" alt="brand_icon" />
+      <p>Search</p>
+    </button>
+  </div>
 </div>
