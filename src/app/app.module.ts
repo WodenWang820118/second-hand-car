@@ -20,6 +20,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CarsComponent } from './components/cars/cars.component';
 import { CarItemComponent } from './components/car-item/car-item.component';
 import { MatCardModule } from '@angular/material/card';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatCardModule } from '@angular/material/card';
     SidebarComponent,
     MainpageComponent,
     CarsComponent,
-    CarItemComponent
+    CarItemComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
