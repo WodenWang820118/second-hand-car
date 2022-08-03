@@ -1,4 +1,12 @@
 .landing-page {
+
+    &__logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+
     &__ellipse {
         position: absolute;
         top: 0;

@@ -21,6 +21,7 @@ import { CarsComponent } from './components/cars/cars.component';
 import { CarItemComponent } from './components/car-item/car-item.component';
 import { MatCardModule } from '@angular/material/card';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { AuthenticationPageComponent } from './components/authentication-page/authentication-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     MainpageComponent,
     CarsComponent,
     CarItemComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    AuthenticationPageComponent
   ],
   imports: [
     BrowserModule,
