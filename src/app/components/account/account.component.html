@@ -1,0 +1,18 @@
+<div
+    class="account
+            flex flex-col items-start
+            absolute top-14 right-4
+            bg-white rounded-sm">
+    <!-- TODO: make the odd items with the border bottom -->
+    <div class="account__item
+                flex flex-row items-center
+                border-b-[1px] border-black">
+        <img class="w-6 mr-2" src="assets/account.svg">
+        <span>Account</span>
+    </div>
+    <div class="account__item
+                flex flex-row items-center">
+        <img class="w-6 mr-2" src="assets/magnifier.svg">
+        <span (click)="auth.signOut()">Log out</span>
+    </div>
+</div>

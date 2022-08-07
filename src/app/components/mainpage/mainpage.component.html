@@ -1,9 +1,10 @@
-<div>
+<!-- if route guard failed, the second layer of authentication -->
+<div class="main-page" *ngIf="auth.user$ | async as user; else notFound">
     <app-navigation></app-navigation>
     <app-header></app-header>
     <div class="flex">
         <app-sidebar class="w-1/3"></app-sidebar>
-        <div class="main-page w-2/3 pr-16">
+        <div class="w-2/3 pr-16">
             <div class="flex justify-end">
                 <select class="main-page__ordering" name="" id="">
                     <option>依瀏覽次數排序</option>
@@ -13,3 +14,12 @@
         </div>
     </div>
 </div>
+
+<ng-template #notFound>
+    <div class="flex justify-center items-center h-screen">
+        <div class="w-1/2">
+            <!-- TODO: request the 404 page -->
+            <!-- <img src="assets/404.svg" alt=""> -->
+        </div>
+    </div>
+</ng-template>

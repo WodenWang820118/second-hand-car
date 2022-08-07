@@ -25,13 +25,13 @@
             </div>
             <div class="mt-6 text-center flex justify-center items-center">
                 <div class="flex-grow bg-[#979797] h-[1px]"></div>
-                <div class="test text-center text-2xl text-[#979797] ml-5 mr-5">or log in with</div>
+                <div class="text-center text-2xl text-[#979797] ml-5 mr-5">or log in with</div>
                 <div class="flex-grow bg-[#979797] h-[1px]"></div>
             </div>
             <div class="mt-6 text-center flex justify-center items-center gap-8">
                 <img class="z-10 w-15" src="assets/facebook-icon.svg" alt="">
                 <img class="z-10 w-15" src="assets/line-icon.svg" alt="">
-                <img class="z-10 w-15" src="assets/google-icon.svg" alt="">
+                <img class="z-10 w-15 cursor-auto" (click)="auth.googleSignin()" src="assets/google-icon.svg" alt="">
             </div>
         </div>
     </div>
