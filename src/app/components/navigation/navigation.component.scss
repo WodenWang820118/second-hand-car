@@ -1,8 +1,16 @@
 .toolbar {
-    background-color: #F8F8F8;
-    opacity: 0.9;
-
-    // &__icon {
+  min-height:50px;
+  max-height:50px;
+  background-color: rgba(248, 248, 248, 0.9);
+  // &__icon {
     //     display: block;
     // }
+}
+
+:host {
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
