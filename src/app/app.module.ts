@@ -1,13 +1,10 @@
+// utility module
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { HeaderComponent } from './components/header/header.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MainpageComponent } from './components/mainpage/mainpage.component';
+
+// angular material modules
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,9 +14,45 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card';
+
+// firebase modules
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
+// components
+import { AppComponent } from './app.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { CarsComponent } from './components/cars/cars.component';
 import { CarItemComponent } from './components/car-item/car-item.component';
-import { MatCardModule } from '@angular/material/card';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { AuthenticationPageComponent } from './components/authentication-page/authentication-page.component';
+
+// firebase functions
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+
+// environment variables
+import { environment } from 'src/environments/environment';
+
+// services
+import { AuthService } from './services/auth.service';
+import { Permissions } from './services/auth.service';
+import { AccountComponent } from './components/account/account.component';
+
+const firebaseConfig = {
+  apiKey: environment.apiKey,
+  authDomain: environment.authDomain,
+  projectId: environment.projectId,
+  storageBucket: environment.storageBucket,
+  messagingSenderId: environment.messagingSenderId,
+  appId: environment.appId,
+  measurementId: environment.measurementId
+}
 
 @NgModule({
   declarations: [
@@ -29,7 +62,10 @@ import { MatCardModule } from '@angular/material/card';
     SidebarComponent,
     MainpageComponent,
     CarsComponent,
-    CarItemComponent
+    CarItemComponent,
+    LandingPageComponent,
+    AuthenticationPageComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +80,13 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatCheckboxModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [AuthService, Permissions],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
