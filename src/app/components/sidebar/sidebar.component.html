@@ -1,4 +1,4 @@
-<div class="sidebar pl-16 pr-16">
+<div class="sidebar pl-16 pr-16" [formGroup]="checkboxGroupForm">
     <mat-accordion multi>
         <h3 class="pl-6"><b>進階搜尋</b></h3>
         <div class="sidebar__price">
@@ -22,14 +22,14 @@
                         里程數
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div class="flex flex-col ml-1">
-                    <mat-checkbox>0~1w</mat-checkbox>
-                    <mat-checkbox>1~5w</mat-checkbox>
-                    <mat-checkbox>5~10w</mat-checkbox>
-                    <mat-checkbox>10~15w</mat-checkbox>
-                    <mat-checkbox>15~20w</mat-checkbox>
-                    <mat-checkbox>20~30w</mat-checkbox>
-                    <mat-checkbox>30w or more</mat-checkbox>
+                <div class="flex flex-col ml-1" [formGroup]="mileage">
+                    <mat-checkbox formControlName="topOne">0~1w</mat-checkbox>
+                    <mat-checkbox formControlName="topFive">1~5w</mat-checkbox>
+                    <mat-checkbox formControlName="topTen">5~10w</mat-checkbox>
+                    <mat-checkbox formControlName="topFifteen">10~15w</mat-checkbox>
+                    <mat-checkbox formControlName="topTwenty">15~20w</mat-checkbox>
+                    <mat-checkbox formControlName="topThirty">20~30w</mat-checkbox>
+                    <mat-checkbox formControlName="thirtyOrMore">30w or more</mat-checkbox>
                 </div>
             </mat-expansion-panel>
         </div>
@@ -40,10 +40,10 @@
                         車齡
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div class="flex flex-col ml-1">
-                    <mat-checkbox>0~4</mat-checkbox>
-                    <mat-checkbox>5~9</mat-checkbox>
-                    <mat-checkbox>10 or more</mat-checkbox>
+                <div class="flex flex-col ml-1" [formGroup]="year">
+                    <mat-checkbox formControlName="topFour">0~4</mat-checkbox>
+                    <mat-checkbox formControlName="topNine">5~9</mat-checkbox>
+                    <mat-checkbox formControlName="tenOrMore">10 or more</mat-checkbox>
                 </div>
             </mat-expansion-panel>
         </div>
@@ -54,29 +54,14 @@
                         排氣量
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div class="flex flex-col ml-1">
-                    <mat-checkbox>1.1L or less</mat-checkbox>
-                    <mat-checkbox>1.1~1.6L</mat-checkbox>
-                    <mat-checkbox>1.1~1.6L</mat-checkbox>
-                    <mat-checkbox>1.6~1.8L</mat-checkbox>
-                    <mat-checkbox>1.8~2.0L</mat-checkbox>
-                    <mat-checkbox>2.0~2.4L</mat-checkbox>
-                    <mat-checkbox>2.4~3.5L</mat-checkbox>
-                    <mat-checkbox>3.5L or more</mat-checkbox>
-                </div>
-            </mat-expansion-panel>
-        </div>
-        <div class="sidebar__certification">
-            <mat-expansion-panel class="mat-elevation-z0">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        認證機構
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="flex flex-col ml-1">
-                    <mat-checkbox>SUM</mat-checkbox>
-                    <mat-checkbox>YES</mat-checkbox>
-                    <mat-checkbox>來茵</mat-checkbox>
+                <div class="flex flex-col ml-1" [formGroup]="displacement">
+                    <mat-checkbox formControlName="topOne">1.1L or less</mat-checkbox>
+                    <mat-checkbox formControlName="topOneSix">1.1~1.6L</mat-checkbox>
+                    <mat-checkbox formControlName="topOneEight">1.6~1.8L</mat-checkbox>
+                    <mat-checkbox formControlName="topTwo">1.8~2.0L</mat-checkbox>
+                    <mat-checkbox formControlName="topTwoFour">2.0~2.4L</mat-checkbox>
+                    <mat-checkbox formControlName="topThreeFive">2.4~3.5L</mat-checkbox>
+                    <mat-checkbox formControlName="threeFiveOrMore">3.5L or more</mat-checkbox>
                 </div>
             </mat-expansion-panel>
         </div>
@@ -87,12 +72,12 @@
                         燃料
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div class="flex flex-col ml-1">
-                    <mat-checkbox>汽油車</mat-checkbox>
-                    <mat-checkbox>柴油車</mat-checkbox>
-                    <mat-checkbox>油電複合車</mat-checkbox>
-                    <mat-checkbox>瓦斯雙燃料</mat-checkbox>
-                    <mat-checkbox>純電車</mat-checkbox>
+                <div class="flex flex-col ml-1" [formGroup]="fuel">
+                    <mat-checkbox formControlName="gasoline">汽油車</mat-checkbox>
+                    <mat-checkbox formControlName="diesel">柴油車</mat-checkbox>
+                    <mat-checkbox formControlName="hybrid">油電複合車</mat-checkbox>
+                    <mat-checkbox formControlName="gas">瓦斯雙燃料</mat-checkbox>
+                    <mat-checkbox formControlName="electric">純電車</mat-checkbox>
                 </div>
             </mat-expansion-panel>
         </div>
@@ -103,14 +88,14 @@
                         車色
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div class="flex flex-col ml-1">
-                    <mat-checkbox>黑</mat-checkbox>
-                    <mat-checkbox>白</mat-checkbox>
-                    <mat-checkbox>銀</mat-checkbox>
-                    <mat-checkbox>藍</mat-checkbox>
-                    <mat-checkbox>紅</mat-checkbox>
-                    <mat-checkbox>黃</mat-checkbox>
-                    <mat-checkbox>其他</mat-checkbox>
+                <div class="flex flex-col ml-1" [formGroup]="color">
+                    <mat-checkbox formControlName="black">黑</mat-checkbox>
+                    <mat-checkbox formControlName="white">白</mat-checkbox>
+                    <mat-checkbox formControlName="sliver">銀</mat-checkbox>
+                    <mat-checkbox formControlName="blue">藍</mat-checkbox>
+                    <mat-checkbox formControlName="red">紅</mat-checkbox>
+                    <mat-checkbox formControlName="yellow">黃</mat-checkbox>
+                    <mat-checkbox formControlName="others">其他</mat-checkbox>
                 </div>
             </mat-expansion-panel>
         </div>
@@ -121,12 +106,12 @@
                         車門數
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div class="flex flex-col ml-1">
-                    <mat-checkbox>2</mat-checkbox>
-                    <mat-checkbox>3</mat-checkbox>
-                    <mat-checkbox>4</mat-checkbox>
-                    <mat-checkbox>5</mat-checkbox>
-                    <mat-checkbox>6</mat-checkbox>
+                <div class="flex flex-col ml-1" [formGroup]="door">
+                    <mat-checkbox formControlName="two">2</mat-checkbox>
+                    <mat-checkbox formControlName="three">3</mat-checkbox>
+                    <mat-checkbox formControlName="four">4</mat-checkbox>
+                    <mat-checkbox formControlName="five">5</mat-checkbox>
+                    <mat-checkbox formControlName="six">6</mat-checkbox>
                 </div>
             </mat-expansion-panel>
         </div>
@@ -137,14 +122,14 @@
                         乘客數
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div class="flex flex-col ml-1">
-                    <mat-checkbox>2</mat-checkbox>
-                    <mat-checkbox>3</mat-checkbox>
-                    <mat-checkbox>4</mat-checkbox>
-                    <mat-checkbox>5</mat-checkbox>
-                    <mat-checkbox>6</mat-checkbox>
-                    <mat-checkbox>7</mat-checkbox>
-                    <mat-checkbox>8 or more</mat-checkbox>
+                <div class="flex flex-col ml-1" [formGroup]="seats">
+                    <mat-checkbox formControlName="two">2</mat-checkbox>
+                    <mat-checkbox formControlName="three">3</mat-checkbox>
+                    <mat-checkbox formControlName="four">4</mat-checkbox>
+                    <mat-checkbox formControlName="five">5</mat-checkbox>
+                    <mat-checkbox formControlName="six">6</mat-checkbox>
+                    <mat-checkbox formControlName="seven">7</mat-checkbox>
+                    <mat-checkbox formControlName="eightOrMore">8 or more</mat-checkbox>
                 </div>
             </mat-expansion-panel>
         </div>
@@ -155,11 +140,11 @@
                         地區
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div class="flex flex-col ml-1">
-                    <mat-checkbox>北</mat-checkbox>
-                    <mat-checkbox>中</mat-checkbox>
-                    <mat-checkbox>南</mat-checkbox>
-                    <mat-checkbox>東</mat-checkbox>
+                <div class="flex flex-col ml-1" [formGroup]="district">
+                    <mat-checkbox formControlName="north">北</mat-checkbox>
+                    <mat-checkbox formControlName="center">中</mat-checkbox>
+                    <mat-checkbox formControlName="south">南</mat-checkbox>
+                    <mat-checkbox formControlName="east">東</mat-checkbox>
                 </div>
             </mat-expansion-panel>
         </div>
@@ -170,12 +155,12 @@
                         變速系統
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div class="flex flex-col ml-1">
-                    <mat-checkbox>手排</mat-checkbox>
-                    <mat-checkbox>自排</mat-checkbox>
-                    <mat-checkbox>自手排</mat-checkbox>
-                    <mat-checkbox>手自排</mat-checkbox>
-                    <mat-checkbox>CVT</mat-checkbox>
+                <div class="flex flex-col ml-1" [formGroup]="gearbox">
+                    <mat-checkbox formControlName="manual">手排</mat-checkbox>
+                    <mat-checkbox formControlName="automatic">自排</mat-checkbox>
+                    <mat-checkbox formControlName="semiAutomatic">自手排</mat-checkbox>
+                    <mat-checkbox formControlName="semiManual">手自排</mat-checkbox>
+                    <mat-checkbox formControlName="CVT">CVT</mat-checkbox>
                 </div>
             </mat-expansion-panel>
         </div>
