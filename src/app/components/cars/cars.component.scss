@@ -6,6 +6,10 @@
         background-color: #FFFBF1;
     }
 
+    .mat-card-title {
+        display: flex;
+    }
+
     &__chip {
         text-align: center;
         align-self: center;

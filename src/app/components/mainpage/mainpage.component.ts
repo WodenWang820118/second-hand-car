@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { AuthService } from './../../services/auth.service';
+// import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
 
-  constructor(public auth: AuthService, router: Router) {
-    if (this.auth.getUser() === null || this.auth.getUser() === undefined) {
-      router.navigate(['/auth']);
-    }
+  // TODO: in production, inject AuthService
+  constructor(router: Router) {
+    // if (this.auth.getUser() === null || this.auth.getUser() === undefined) {
+    //   router.navigate(['/auth']);
+    // }
   }
 
   ngOnInit(): void {
