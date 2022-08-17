@@ -1,8 +1,10 @@
+@import '../../app.component.scss';
+
 .main-page {
     &__ordering {
         padding: 3px;
-        background-color: #F8F8F8;
-        border: 2px solid #256506;
+        background-color: $ci-second-gold3;
+        border: 2px solid $ci-main-green2;
         border-radius: 6px;
         margin-bottom: 10px;
     }

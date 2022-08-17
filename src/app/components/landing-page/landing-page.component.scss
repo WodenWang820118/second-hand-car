@@ -1,3 +1,5 @@
+@import '../../app.component.scss';
+
 .landing-page {
 
     &__logo {
@@ -35,7 +37,7 @@
         padding: 10px 32px;
         width: 270px;
         border-radius: 36px;
-        background-color: #348600;
-        color: white;
+        background-color: $ci-main-green1;
+        color: $white;
     }
 }

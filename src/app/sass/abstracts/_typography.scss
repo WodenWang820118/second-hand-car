@@ -1,0 +1,86 @@
+@mixin Noto-Sans-TCTitle182-Bold {
+    font-size: pxToRem(18px);
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: 0.18px;
+}
+
+@mixin Noto-Sans-TCBody181-Regular {
+    font-size: pxToRem(18px);
+    line-height: 1.89;
+    letter-spacing: 0.09px;
+}
+
+@mixin Noto-Sans-TCBody161-Regular {
+    font-size: pxToRem(16px);
+    line-height: 1.88;
+    letter-spacing: 0.07px;
+}
+
+@mixin Noto-Sans-TCBody182-Bold {
+    font-size: pxToRem(18px);
+    font-weight: 500;
+    line-height: 1.89;
+    letter-spacing: 0.09px;
+}
+
+@mixin Noto-Sans-TCBody162-Bold {
+    font-size: pxToRem(16px);
+    font-weight: 500;
+    line-height: 1.88;
+    letter-spacing: 0.07px;
+}
+
+@mixin Noto-Sans-TCBody151-Regular {
+    font-size: pxToRem(15px);
+    line-height: 1.87;
+    letter-spacing: 0.06px;
+}
+
+@mixin Noto-Sans-TCBody152-Bold {
+    font-size: pxToRem(15px);
+    font-weight: 500;
+    line-height: 1.87;
+    letter-spacing: 0.06px;
+}
+
+@mixin Noto-Sans-TCBody141-Regular {
+    font-size: pxToRem(14px);
+    line-height: 1.93;
+    letter-spacing: 0.05px;
+}
+
+@mixin Noto-Sans-TCBody142-Bold {
+    font-size: pxToRem(14px);
+    font-weight: 500;
+    line-height: 1.93;
+    letter-spacing: 0.05px;
+}
+
+@mixin Noto-Sans-TCCaption132-Bold {
+    font-size: pxToRem(13px);
+    font-weight: 500;
+    line-height: 1.62;
+    letter-spacing: 0.2px;
+}
+
+@mixin Noto-Sans-TCCallout182-Bold {
+    font-size: pxToRem(18px);
+    font-weight: bold;
+    line-height: 1.61;
+    letter-spacing: 0.09px;
+}
+
+@mixin Noto-Sans-TCCallout152-Bold {
+    font-size: pxToRem(15px);
+    font-weight: bold;
+    line-height: 1.67;
+    letter-spacing: 0.06px;
+}
+
+@mixin Noto-Sans-TCCallout142-Bold {
+    font-size: pxToRem(14px);
+    font-weight: bold;
+    line-height: 1.71;
+    letter-spacing: 0.05px;
+}
