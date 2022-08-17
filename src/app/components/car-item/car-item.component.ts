@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { CarsInfoService } from 'src/app/services/cars-info.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Car } from 'src/app/services/car.model';
 
 @Component({
   selector: 'app-car-item',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car-item.component.scss']
 })
 export class CarItemComponent implements OnInit {
+  @Input() car!: Car;
 
-  constructor() { }
+  constructor(private carsService: CarsInfoService) { }
 
   ngOnInit(): void {
+  }
+
+  browse() {
+    // console.log(this.car);
+    this.carsService.updateCarClickCount(this.car).subscribe();
   }
 
 }

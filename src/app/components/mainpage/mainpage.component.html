@@ -32,8 +32,10 @@
         <app-sidebar class="w-1/3"></app-sidebar>
         <div class="w-2/3 pr-16">
             <div class="flex justify-end">
-                <select class="main-page__ordering" name="" id="">
-                    <option>依瀏覽次數排序</option>
+                <select #selected class="main-page__ordering" name="" id="" (change)="sortBy(selected.value)">
+                    <option>依瀏覽次數高到低排序</option>
+                    <option>依價格低到高排序</option>
+                    <option>依價格高到低排序</option>
                 </select>
             </div>
             <app-cars></app-cars>

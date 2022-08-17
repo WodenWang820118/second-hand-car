@@ -1,4 +1,5 @@
 export interface Car {
+    id: number;
     brand: string;
     city: string;
     color: string;
@@ -13,4 +14,5 @@ export interface Car {
     year: string;
     price: string;
     seats: string;
+    clicks: number;
 }
