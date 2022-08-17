@@ -1,0 +1,23 @@
+.car {
+    &__image {
+        background-color: white;
+    }
+    .mat-card {
+        background-color: #FFFBF1;
+    }
+
+    .mat-card-title {
+        display: flex;
+    }
+
+    &__chip {
+        text-align: center;
+        align-self: center;
+        width: 61px;
+        padding: 2px;
+        border-radius: 12px;
+        background-color: black;
+        color: white;
+        font-size: 12px;
+    }
+}

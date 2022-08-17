@@ -1,1 +1,37 @@
-<p>car-item works!</p>
+<div class="car">
+    <mat-card class="mb-8" (click)="browse()">
+        <div class="flex h-fit">
+            <div class="car__image w-1/2">
+                <img src="assets/blue-car.svg">
+            </div>
+            <div class="w-1/2 pl-5">
+                <mat-card-title class="flex align-middle justify-between">
+                    <div class="pt-1 pb-auto">{{ car.brand }}</div>
+                    <div>{{ car.price }}萬</div>
+                </mat-card-title>
+                <br>
+                <div class="car__info mb-28">
+                    <!-- TODO: current data structure -->
+                    <!-- <div>{{car.model}}</div>
+                    <div>{{car.city}}</div>
+                    <div>{{car.color}}</div>
+                    <div>{{car.drive}}</div>
+                    <div>{{car.displacement}}</div>
+                    <div>{{car.doors}}</div>
+                    <div>{{car.fuel}}</div>
+                    <div>{{car.gear}}</div>
+                    <div>{{car.seats}}</div>
+                    <div>{{car.mileage}}</div>
+                    <div>{{car.price}}</div> -->
+                </div>
+                <div class="flex justify-between">
+                    <div class="flex justify-between">
+                        <p class="car__chip">NEW</p>
+                    </div>
+                    <p>Last Edited</p>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>
+

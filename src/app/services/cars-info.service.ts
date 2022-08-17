@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 // import { getFirestore, collection, getDocs, Firestore, limit, query, orderBy } from '@angular/fire/firestore';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Car } from './car.model';
@@ -65,4 +65,10 @@ export class CarsInfoService {
   getUpdateApiRequest() {
     return this.updateApiRequest;
   }
+
+  updateCarClickCount(car: Car) {
+    car.clicks++;
+    return this.httpClient.put<Car>(`${this.mockUrl}/${car.id}`, car, headerOptions);
+  }
+
 }
