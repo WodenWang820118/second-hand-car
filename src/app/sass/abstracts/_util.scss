@@ -1,0 +1,17 @@
+@mixin rwd($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin between-rwd($min, $max) {
+    @media (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin min-rwd($min) {
+    @media (min-width: $min) {
+        @content;
+    }
+}
