@@ -48,6 +48,9 @@ import { AuthService } from './services/auth.service';
 import { Permissions } from './services/auth.service';
 import { CarsInfoService } from './services/cars-info.service';
 
+// ui styles
+import { UiModule } from '../../../../libs/ui/src/lib/ui.module';
+
 const firebaseConfig = {
   apiKey: environment.apiKey,
   authDomain: environment.authDomain,
@@ -93,9 +96,10 @@ const firebaseConfig = {
     AngularFirestoreModule,
     AngularFireAuthModule,
     provideFirestore(() => getFirestore()),
+    UiModule,
   ],
   providers: [AuthService, Permissions, CarsInfoService],
   bootstrap: [AppComponent],
-  exports: [CarItemComponent],
+  exports: [],
 })
 export class AppModule {}

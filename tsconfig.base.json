@@ -22,7 +22,8 @@
     "lib": ["es2020", "dom"],
     "paths": {
       "second-hand-car-lib": ["libs/second-hand-car-lib/src/index.ts"],
-      "test-library": ["libs/test-library/src/index.ts"]
+      "test-library": ["libs/test-library/src/index.ts"],
+      "ui": ["libs/ui/src/index.ts"]
     },
     "rootDir": "."
   },

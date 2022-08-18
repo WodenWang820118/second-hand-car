@@ -3,7 +3,5 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [],
-  exports: [],
 })
-export class SecondHandCarLibModule {}
+export class UiModule {}
