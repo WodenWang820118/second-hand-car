@@ -1,10 +1,5 @@
-@import './sass/abstracts/abstracts';
-@import './sass/base/base';
-@import './sass/components/components';
-@import './sass/layout/layout';
-@import './sass/pages/pages';
-@import './sass/themes/themes';
-@import './sass/vendors/vendors';
+/* shared CSS */
+@import '../../../../libs/ui/src/lib/public-mixin.scss';
 
 /* checkbox background color */
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
