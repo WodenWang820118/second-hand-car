@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/second-hand-car-lib/src",
+  "prefix": "app",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/second-hand-car-lib"],
+      "options": {
+        "jestConfig": "libs/second-hand-car-lib/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/second-hand-car-lib/**/*.ts",
+          "libs/second-hand-car-lib/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

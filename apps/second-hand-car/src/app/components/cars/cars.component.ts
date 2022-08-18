@@ -10,19 +10,12 @@ import { Car } from '../../services/car.model';
 export class CarsComponent implements OnInit {
   cars: Car[] = [];
 
-  // TODO: in production, inject CarsInfoService
   constructor(public carsService: CarsInfoService) { }
 
   ngOnInit(): void {
-    // this.carsService.getCarsInfoObservable().subscribe(cars => {
-    //   console.log(cars);
-    //   this.cars = cars;
-    // });
-
     this.carsService.getCarsInfoSubject().subscribe(cars => {
-      // console.log(cars);
+      console.log(cars);
       this.cars = cars;
     });
   }
-
 }

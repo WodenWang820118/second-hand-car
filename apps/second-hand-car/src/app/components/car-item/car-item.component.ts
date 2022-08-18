@@ -16,8 +16,10 @@ export class CarItemComponent implements OnInit {
   }
 
   browse() {
-    // console.log(this.car);
-    this.carsService.updateCarClickCount(this.car).subscribe();
+    // mock API call
+    // this.carsService.updateCarClickCount(this.car).subscribe();
+    
+    this.carsService.updateCarClickCount(this.car);
   }
 
 }

@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "second-hand-car": "apps/second-hand-car"
+    "second-hand-car": "apps/second-hand-car",
+    "second-hand-car-lib": "libs/second-hand-car-lib"
   }
 }

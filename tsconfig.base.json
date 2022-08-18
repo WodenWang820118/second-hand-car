@@ -19,11 +19,11 @@
     "allowSyntheticDefaultImports": true,
     "target": "es2020",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
-    "paths": {},
+    "lib": ["es2020", "dom"],
+    "paths": {
+      "second-hand-car-lib": ["libs/second-hand-car-lib/src/index.ts"],
+      "test-library": ["libs/test-library/src/index.ts"]
+    },
     "rootDir": "."
   },
   "angularCompilerOptions": {
@@ -32,8 +32,5 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

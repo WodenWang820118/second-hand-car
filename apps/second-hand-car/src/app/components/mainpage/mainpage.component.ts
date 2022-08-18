@@ -1,7 +1,7 @@
 import { CarsInfoService } from '../../services/cars-info.service';
 import { CarsSorterService } from './../../services/cars-sorter.service';
 import { Router } from '@angular/router';
-// import { AuthService } from './../../services/auth.service';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../../services/car.model';
 
@@ -14,13 +14,13 @@ export class MainpageComponent implements OnInit {
 
   cars: Car[] = [];
 
-  // TODO: in production, inject AuthService
   constructor(router: Router,
+              public auth: AuthService,
               private carsService: CarsInfoService,
               private carsSorterService:CarsSorterService) {
-    // if (this.auth.getUser() === null || this.auth.getUser() === undefined) {
-    //   router.navigate(['/auth']);
-    // }
+    if (this.auth.getUser() === null || this.auth.getUser() === undefined) {
+      router.navigate(['/auth']);
+    }
   }
 
   ngOnInit(): void {

@@ -19,12 +19,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
-// TODO: when in production, comment out the following imports
-
 // firebase modules
-// import { AngularFireModule } from '@angular/fire/compat';
-// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-// import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 // components
 import { AppComponent } from './app.component';
@@ -39,26 +37,26 @@ import { AuthenticationPageComponent } from './components/authentication-page/au
 import { AccountComponent } from './components/account/account.component';
 
 // firebase functions
-// import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-// import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 // environment variables
-// import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 
 // services
-// import { AuthService } from './services/auth.service';
-// import { Permissions } from './services/auth.service';
+import { AuthService } from './services/auth.service';
+import { Permissions } from './services/auth.service';
 import { CarsInfoService } from './services/cars-info.service';
 
-// const firebaseConfig = {
-//   apiKey: environment.apiKey,
-//   authDomain: environment.authDomain,
-//   projectId: environment.projectId,
-//   storageBucket: environment.storageBucket,
-//   messagingSenderId: environment.messagingSenderId,
-//   appId: environment.appId,
-//   measurementId: environment.measurementId
-// }
+const firebaseConfig = {
+  apiKey: environment.apiKey,
+  authDomain: environment.authDomain,
+  projectId: environment.projectId,
+  storageBucket: environment.storageBucket,
+  messagingSenderId: environment.messagingSenderId,
+  appId: environment.appId,
+  measurementId: environment.measurementId,
+};
 
 @NgModule({
   declarations: [
@@ -71,7 +69,7 @@ import { CarsInfoService } from './services/cars-info.service';
     CarItemComponent,
     LandingPageComponent,
     AuthenticationPageComponent,
-    AccountComponent
+    AccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,16 +89,13 @@ import { CarsInfoService } from './services/cars-info.service';
     MatExpansionModule,
     MatCardModule,
     MatPaginatorModule,
-    // AngularFireModule.initializeApp(firebaseConfig),
-    // AngularFirestoreModule,
-    // AngularFireAuthModule,
-    // provideFirestore(() => getFirestore())
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    provideFirestore(() => getFirestore()),
   ],
-  providers: [
-    // AuthService,
-    // Permissions,
-    CarsInfoService
-  ],
-  bootstrap: [AppComponent]
+  providers: [AuthService, Permissions, CarsInfoService],
+  bootstrap: [AppComponent],
+  exports: [CarItemComponent],
 })
-export class AppModule { }
+export class AppModule {}
