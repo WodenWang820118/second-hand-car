@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import carlist from '../../../assets/carlist.json';
+import carlist from '../../../../../../libs/shared-assets/carlist.json';
 
 @Component({
   selector: 'app-header',
