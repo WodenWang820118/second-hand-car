@@ -46,7 +46,8 @@ Run `ng g @nrwl/angular:app my-app` to generate an application.
 > You can use any of the plugins above to generate applications as well.
 
 When using Nx, you can create multiple applications and libraries in the same workspace.
-
+- use `nx run second-hand-car:serve:production` to run the frontend app
+- use `npm run server to use json-server mock API`, but for now use data directly from firebase
 ## Generate a library
 
 Run `ng g @nrwl/angular:lib my-lib` to generate a library.
