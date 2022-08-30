@@ -1,4 +1,5 @@
 .sidebar {
+    width: 375px;
     &__price {
         input {
             width: 60%;
@@ -8,4 +9,21 @@
             border-width: 1px;
         }
     }
+
+    ::ng-deep .mat-expansion-panel {
+        .mat-expansion-indicator {
+            transition: transform .3s ease;
+
+            &::after {
+                transform: rotate(-45deg);
+            }
+        }
+
+        &.mat-expanded {
+            .mat-expansion-indicator {
+                transform: rotate(90deg) !important;
+            }
+        }
+    }
+
 }
