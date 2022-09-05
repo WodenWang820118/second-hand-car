@@ -1,3 +1,5 @@
+@import '../../app.component.scss';
+
 .sidebar {
     width: 375px;
     &__price {
@@ -10,18 +12,17 @@
         }
     }
 
-    ::ng-deep .mat-expansion-panel {
+    .mat-expansion-panel {
         .mat-expansion-indicator {
             transition: transform .3s ease;
-
             &::after {
-                transform: rotate(-45deg);
+                @extend .mat-chevron--default;
             }
         }
 
-        &.mat-expanded {
+        .mat-expanded {
             .mat-expansion-indicator {
-                transform: rotate(90deg) !important;
+                @extend .mat-chevron--expanded;
             }
         }
     }
