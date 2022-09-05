@@ -1,4 +1,7 @@
+@import '../../app.component.scss';
+
 .sidebar {
+    width: 375px;
     &__price {
         input {
             width: 60%;
@@ -8,4 +11,20 @@
             border-width: 1px;
         }
     }
+
+    .mat-expansion-panel {
+        .mat-expansion-indicator {
+            transition: transform .3s ease;
+            &::after {
+                @extend .mat-chevron--default;
+            }
+        }
+
+        .mat-expanded {
+            .mat-expansion-indicator {
+                @extend .mat-chevron--expanded;
+            }
+        }
+    }
+
 }

@@ -1,112 +1,175 @@
 @import '../../app.component.scss';
 
-:host {
-  position: relative;
-  top: -50px;
-}
+.header {
+    position: relative;
+    width: 100%;
 
-p {
-  margin: 0;
-}
+    &__image {
+        max-width: 100%;
 
-.bk {
-  @apply absolute left-1/2 flex flex-row justify-center gap-2;
-  top: 52%;
-  transform: translate(-50%, -50%);
-  width: 560px;
-  height: 100px;
-  border-radius: 4px;
-  background-color: $search-filter-bg;
-
-  .mat-header {
-    padding: 0 15px;
-    width: 170px;
-    box-shadow: $box-shadow1;
-    border-radius: 4px;
-
-    p {
-      font-size: 22px;
+        @include rwd($small-1) {
+            max-width: none;
+            height: 400px;
+        }
     }
 
-    &__title {
-      @apply flex justify-between m-0;
+    &__filter {
+        @include absCenter;
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 8px;
+        border-radius: 4px;
+        padding: 32px 40px;
+        max-width: 878px;
+        max-height: 150px;
+        background-color: $search-filter-bg;
 
-      &__icon {
-        height: 22px;
-        margin-left: 10px;
-      }
+        @include rwd($medium-2) {
+            max-width: 696px;
+            max-height: 135px;
+        }
+
+        @include rwd($small-1) {
+            max-width: 200px;
+            max-height: 240px;
+            padding: 24px;
+        }
+
+        &__item {
+            flex-wrap: wrap;
+            flex: 1 1 0;
+            z-index: 1;
+        }
     }
-  }
-
-  .search {
-    @apply relative flex flex-row items-center justify-center;
-    gap: 10px;
-    top: 20%;
-    width: 150px;
-    height: 60px;
-    box-shadow: $box-shadow1;
-    border-radius: 4px;
-    background-color: $ci-main-green1;
-
-    p {
-      color: $white;
-      font-size: 20px;
-    }
-  }
-
-  ::ng-deep .mat-expansion-panel-body {
-    @apply p-0 h-auto;
-    background-color: ci-second-gold3;
-  }
-
-  .drop-down {
-    @apply flex flex-col font-medium;
 
     &__search {
-      @apply w-28 h-3/4 p-1;
-      border: 1px solid $function-alphabet-mark;
-      border-radius: 4px;
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        box-shadow: $box-shadow1;
+        border-radius: 4px;
+        height: 100%;
+        width: 100%;
+        padding: 21px 0;
+        background-color: $ci-main-green1;
 
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
-    &__scroll {
-      max-height: 200px;
-      @apply h-fit overflow-y-scroll overflow-x-hidden;
-
-      .alphabet {
-        @apply h-full text-center;
-        width: 10%;
-        background-color: $function-alphabet-scroll;
-      }
-
-      .box-wrapper {
-        @apply flex flex-row items-center h-5;
-
-        &__checkbox {
-          @apply h-full overflow-hidden bg-white;
-
-          ::ng-deep .mat-checkbox-inner-container {
-            margin: 2px 5px auto 10px;
-            width: 14px;
-            height: 14px;
-          }
-
-          ::ng-deep .mat-checkbox-layout .mat-checkbox-label {
-            line-height: 20px;
-          }
+        @include rwd($small-1) {
+            height: 55px;
         }
-      }
 
-      .brand-checkbox {
-        width: 90%;
-      }
-
-      .type-checkbox {
-        @apply w-full font-bold;
-      }
+        p {
+            color: $white;
+            @extend .panel-element--title;
+        }
     }
-  }
+
+    &__panel {
+        @extend .mat-expansion-panel;
+        .mat-expansion-panel {
+            .mat-expansion-indicator {
+                transition: transform .3s ease;
+        
+                &::after {
+                    @extend .mat-chevron--black;
+                    @extend .mat-chevron--header-default;
+                    border-width: 0 3px 3px 0;
+                }
+            }
+
+            .mat-expanded {
+                .mat-expansion-indicator {
+                    @extend .mat-chevron--black;
+                    @extend .mat-chevron--header-expanded;
+                }
+            }
+        }
+
+        &__header {
+            box-shadow: $box-shadow1;
+        }
+
+        &__title {
+            gap: 24px;
+            margin: 21px 0px;
+
+            @include rwd($small-1) {
+                gap: 12px;
+                margin: 0;
+            }
+
+            p {
+                color: $ci-main-black;
+                @extend .panel-element--title;
+            }
+        }
+
+        &__icon {
+            height: 44px;
+
+            @include rwd($medium-2) {
+                height: 32px;
+            }
+
+            @include rwd($small-1) {
+                height: 24px;
+            }
+        }
+
+        &__search {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 10px;
+
+            @include rwd($medium-2) {
+                // TODO: need to discuss with the designer
+                // idea: tablet version can ignore the search bar
+                display: none;
+            }
+
+            input {
+                height: 29px;
+                border: 1px solid $function-alphabet-mark;
+                border-radius: 4px;
+            }
+
+            p {
+                @extend .panel-element;
+                @extend .panel-element--search;
+            }
+        }
+
+        &__scroll {
+            max-height: 270px;
+            height: fit-content;
+            overflow-y: scroll;
+            overflow-x: scroll;
+        }
+
+        &__set {
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            background-color: $grayscale-00;
+
+            &__item {
+                background-color: $white;
+                @extend .panel-element;
+                @extend .panel-element--option;
+            }
+
+            &__item--active {
+                background-color: $function-alphabet-mark;
+                flex: 1 1 0;
+            }
+
+            &__item--default {
+                background-color: $function-alphabet-scroll;
+                flex: 1 1 0;
+                text-indent: -999px;
+            }
+        }
+    }
 }

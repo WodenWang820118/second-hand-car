@@ -1,5 +1,5 @@
 <div class="sidebar pl-16 pr-16" [formGroup]="checkboxGroupForm">
-    <mat-accordion multi>
+    <mat-accordion multi [togglePosition]="'after'">
         <h3 class="pl-6"><b>進階搜尋</b></h3>
         <div class="sidebar__price">
             <mat-expansion-panel class="mat-elevation-z0">
@@ -8,7 +8,7 @@
                         價格區間
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div class="flex align-middle justify-start pr-10 w-2/3">
+                <div class="flex align-middle justify-start">
                     <input class="flex-auto" placeholder="$ Min" type="number">
                     <span class="flex-auto text-center ml-3 mr-3 mt-auto mb-auto">~</span>
                     <input class="flex-auto" placeholder="$ Max" type="number">

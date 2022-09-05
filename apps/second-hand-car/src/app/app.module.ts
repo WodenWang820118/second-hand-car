@@ -18,6 +18,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 
 // firebase modules
 import { AngularFireModule } from '@angular/fire/compat';
@@ -47,6 +48,7 @@ import { environment } from '../environments/environment';
 import { AuthService } from './services/auth.service';
 import { Permissions } from './services/auth.service';
 import { CarsInfoService } from './services/cars-info.service';
+import { WindowService } from './services/window.service';
 
 // ui styles
 import { UiModule } from '../../../../libs/ui/src/lib/ui.module';
@@ -97,8 +99,9 @@ const firebaseConfig = {
     AngularFireAuthModule,
     provideFirestore(() => getFirestore()),
     UiModule,
+    MatSelectModule,
   ],
-  providers: [AuthService, Permissions, CarsInfoService],
+  providers: [AuthService, Permissions, CarsInfoService, WindowService],
   bootstrap: [AppComponent],
   exports: [],
 })

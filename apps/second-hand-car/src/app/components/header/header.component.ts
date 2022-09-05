@@ -1,85 +1,104 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-import carlist from '../../../../../../libs/shared-assets/carlist.json';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { WindowService } from '../../services/window.service';
+import { fromEvent, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  brandList = carlist.brand;
-  typeList = carlist.type;
-  displayCarList: string[] = [];
-  displayIdx: number[] = [];
-  brandSelected: string[] = [];
-  typeSelected: string[] = [];
+  resizeObservable$: Observable<Event>;
+  resizeSubscription$: Subscription;
+  brandDisplayStyle: string = '';
+  typeDisplayStyle: string = ''
+  searchBtnDisplayStyle: string = ''
+  currItemAlphabet = '';
 
-  constructor(private el: ElementRef) {}
+  // TODO: sort the brand list
+  brands: string[] = [
+    "Alpha Romeo", "Aston Martin", "Audi",
+    "Bently", "BMW", "Bugatti", "Buick",
+    "Cadillac", "Chery", "Chrysler", "Citroen", "CMC",
+    "Daihatsu", "DFSK", "DS",
+    "Ferrari", "Fiat", "Ford",
+    "Honda", "Hyundai",
+    "Infiniti", "IVECO",
+    "Jaguar",
+    "KIA", "Koenigsegg",
+    "Lamborghini", "Land Rover", "Lotus", "Luxgen",
+    "Mahindra", "Maserati", "Mazda", "McLaren", "Mercedes-Benz", "Mini", "Mistubishi", "Morgon",
+    "Nissan",
+    "Opel",
+    "Pagani", "Peugot", "Porshe", "Proton",
+    "Renault", "Rolls Royce",
+    "SAAB", "Skoda", "Smart", "SsangYong", "Subaru", "Suzuki",
+    "Tesla", "tobe", "Toyata",
+    "Volkswagon", "Volvo"
+  ];
 
-  ngOnInit(): void {
-    this.brandList = this.sortList(this.brandList);
-    this.displayCarList = this.brandList;
-    this.displayIdx = Array.from(Array(this.brandList.length).keys()).map(x => x);
+  types: string[] = [
+    "轎車", "跑車", "休旅車","貨車","吉普車","其他"
+  ]
+
+  constructor(private windowService: WindowService) {
+    // subscribe to window resize event using observable
+    this.resizeObservable$ = fromEvent(window, 'resize');
+    this.resizeSubscription$ = this.resizeObservable$.subscribe(evt => {
+      console.log(window.outerWidth);
+      this.responsiveHeight();
+    });
   }
 
-  ngAfterViewInit() {
-    this.setAlphabet(this.displayIdx)
+  public get width() {
+    return this.windowService.windowRef.outerWidth;
   }
 
-  sortList(carlist:string[]) {
-    carlist.sort((a, b) => {
-      a = a.toLowerCase();
-      b = b.toLowerCase();
-      if( a == b) return 0;
-      return a < b ? -1 : 1;
-    })
-    return carlist;
+  responsiveHeight() {
+    //TODO: precise responsive height
+    return this.windowService.windowRef.outerWidth <= 480 ? '55px' : '100%'; 
   }
 
-  setAlphabet(displayIdx:number[]) {
-    let alphabets = (<HTMLElement>this.el.nativeElement).querySelectorAll('.alphabet');
-    let preAl = '', nowAl = '';
-    displayIdx.forEach((idx) => {
-      preAl = nowAl;
-      nowAl = this.brandList[idx][0].toUpperCase();
-      if (preAl !== nowAl ) {
-        alphabets[idx].setAttribute('style', 'background-color:#cecece')
-        alphabets[idx].innerHTML = nowAl;
+  isFirstItem(brand: string) {
+    for(let i = 0; i < this.brands.length; i++) {
+      const brandLetter = brand[0].toUpperCase();
+      if (brandLetter !== this.currItemAlphabet) {
+        this.currItemAlphabet = brandLetter;
+        return 'true';
       }
-      if (preAl === nowAl ) {
-        alphabets[idx].removeAttribute('style')
-        alphabets[idx].innerHTML = '';
-      }
-    })
+    }
+    return 'false';
   }
 
-  onSelect(event:any, i:number, str:string) {
-    let checkbox = (<HTMLElement>this.el.nativeElement).querySelectorAll('.'+str+'-checkbox')[i];
-    if (event.checked) {
-      checkbox.setAttribute('style', 'background-color:#ffcc4b');
-      str==='brand'? this.brandSelected.push(this.brandList[i]) :  this.typeSelected.push(this.typeList[i])
-    } else {
-      checkbox.setAttribute('style', 'background-color:#ffffff');
-      str==='brand'? this.brandSelected = this.brandSelected.filter((brand) => brand !== this.brandList[i])
-       : this.typeSelected = this.typeSelected.filter((brand) => brand !== this.typeList[i])
+  onBrandSelected(brandCheckbox: any, brand: any) {
+    // TODO: selection for filtering
+  }
+
+  onTypeSelected(typeCheckbox: any, type: any) {
+    // TODO: selection for filtering
+  }
+
+  onAccordionOpened(accordion: any) {
+    if (this.windowService.windowRef.outerWidth <= 480) {
+      if (accordion.id === 'cdk-accordion-child-0') {
+        this.typeDisplayStyle = 'none';
+        this.searchBtnDisplayStyle = 'none';
+      } else if (accordion.id === 'cdk-accordion-child-1') {
+        this.searchBtnDisplayStyle = 'none';
+      }
     }
   }
 
-  filterCars(event:any) {
-    let temp:number[] = [];
-    let regex = new RegExp(event.target.value, 'gi');
-    let brandCheckboxWrappers = (<HTMLElement>this.el.nativeElement).querySelectorAll('.brand-filter');
-    this.brandList.forEach((car, i) => {
-      if(car.match(regex)) {
-        temp.push(i);
-        brandCheckboxWrappers[i].setAttribute('style', 'display: flex');
-      } else {
-        brandCheckboxWrappers[i].setAttribute('style', 'display: none');
+  onAccordionClosed(accordion: any) {
+    if (this.windowService.windowRef.outerWidth <= 480) {
+      if (accordion.id === 'cdk-accordion-child-0') {
+        this.typeDisplayStyle = '';
+        this.searchBtnDisplayStyle = '';
+      } else if (accordion.id === 'cdk-accordion-child-1') {
+        this.searchBtnDisplayStyle = '';
       }
-    })
-    this.displayIdx = temp;
-    setTimeout(() => this.setAlphabet(this.displayIdx));
+    }
   }
-
 }

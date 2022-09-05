@@ -1,0 +1,62 @@
+// used inside .mat-expansion-panel, which is a component of angular material
+
+.mat-chevron {
+    &--header-default {
+        width: 20px;
+        height: 20px;
+        transform: rotate(-45deg);
+
+        @include rwd($medium-2) {
+            width: 16px;
+            height: 16px;
+        }
+
+        @include rwd($small-1) {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    &--header-expanded {
+        width: 20px;
+        height: 20px;
+        transform: rotate(90deg) !important;
+
+        @include rwd($medium-2) {
+            width: 16px;
+            height: 16px;
+        }
+
+        @include rwd($small-1) {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    &--default {
+        transform: rotate(-45deg);
+    }
+
+    &--expanded {
+        transform: rotate(90deg) !important;
+    }
+
+    &--small {
+        width: 12px;
+        height: 12px;
+    }
+
+    &--medium {
+        width: 16px;
+        height: 16px;
+    }
+
+    &--large {
+        width: 20px;
+        height: 20px;
+    }
+
+    &--black {
+        border-color: $grayscale-100;
+    }
+}

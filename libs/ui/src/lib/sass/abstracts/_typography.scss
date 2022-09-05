@@ -1,0 +1,33 @@
+@import 'util';
+
+.panel-element {
+    font-weight: 500;
+    line-height: 150%;
+
+    &--option {
+        font-size: 20px;
+
+        @include rwd($medium-2) {
+            font-size: 16px;
+        }
+    }
+
+    &--search {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    &--title {
+        font-size: 32px;
+        font-weight: 500;
+        margin: 0;
+
+        @include rwd($medium-2) {
+            font-size: 24px;
+        }
+
+        @include rwd($small-1) {
+            font-size: 20px;
+        }
+    }
+}

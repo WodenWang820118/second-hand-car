@@ -1,54 +1,73 @@
-<div class="mb-10 relative">
-    <img src="assets/header.svg" alt="" />
-    <div class="bk">
-    <div>
-        <mat-expansion-panel #brand class="top-5 mat-elevation-z0" hideToggle="true">
-        <mat-expansion-panel-header class="mat-header" [collapsedHeight]="'60px'" [expandedHeight]="'60px'">
-            <mat-panel-title class="mat-header__title">
-                <img class="w-7 h-7" src="assets/brand_icon.svg" alt="brand_icon" />
-                <p>{{ brandSelected[0]? (brandSelected.length===1 && brandSelected[0].length<6 ?
-                    brandSelected[0].slice(0,5) : brandSelected[0].slice(0,3)+'..' ) : 'Brand' }}</p>
-                <mat-icon class="mat-header__title__icon">{{ brand.expanded ? "expand_less" : "chevron_right" }}</mat-icon>
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div class="drop-down">
-            <div class="flex flex-row justify-around items-center h-7 px-1">
-                <p class="text-xs">Search</p>
-                <input type="text" class="drop-down__search" (keyup)="filterCars($event)"/>
-            </div>
-            <div class="drop-down__scroll">
-            <div *ngFor="let car of brandList; let i=index" class="box-wrapper brand-filter">
-                <p class="alphabet"></p>
-                <mat-checkbox class="box-wrapper__checkbox brand-checkbox" (change)="onSelect($event, i, 'brand')">{{car}}</mat-checkbox>
-            </div>
-            </div>
-        </div>
-        </mat-expansion-panel>
-    </div>
-    <div>
-        <mat-expansion-panel #type class="top-5 mat-elevation-z0" hideToggle="true">
-        <mat-expansion-panel-header class="mat-header" [collapsedHeight]="'60px'" [expandedHeight]="'60px'">
-            <mat-panel-title class="mat-header__title">
-                <img class="w-11 h-11" src="assets/cartype_icon.svg" alt="cartype_icon" />
-                <p [ngClass]="{'font-bold' : typeSelected[0]}"
-                    [ngStyle]="{'font-size' : typeSelected[0]?'20px':null}">
-                    {{ typeSelected[0]? (typeSelected.length===1 ?
-                    typeSelected[0].slice() : typeSelected[0].slice(0,2)+'..' ): 'Type' }}</p>
-                <mat-icon class="mat-header__icon">{{ type.expanded ? "expand_less" : "chevron_right" }}</mat-icon>
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div class="drop-down">
-            <div class="drop-down__scroll">
-                <div *ngFor="let car of typeList; let i=index" class="box-wrapper">
-                    <mat-checkbox class="box-wrapper__checkbox type-checkbox" (change)="onSelect($event, i, 'type')">{{car}}</mat-checkbox>
+<div class="header mb-20">
+    <img class="header__image" src="assets/header.svg" alt="" />
+    <div class="header__filter">
+        <div class="header__filter__item header__panel">
+            <mat-expansion-panel class="mat-elevation-z0" #brandAccordion (opened)="onAccordionOpened(brandAccordion)"
+                (closed)="onAccordionClosed(brandAccordion)" [ngStyle]="{ display: brandDisplayStyle }">
+                <mat-expansion-panel-header class="header__panel__header" [collapsedHeight]="responsiveHeight()"
+                    [expandedHeight]="responsiveHeight()">
+                    <mat-panel-title class="header__panel__title">
+                        <img class="header__panel__icon" src="assets/brand_icon.svg" alt="brand_icon" />
+                        <p>Brand</p>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="header__panel__description">
+                    <div class="header__panel__search">
+                        <p>Search</p>
+                        <input type="text" />
+                    </div>
+                    <div class="header__panel__scroll">
+                        <div *ngFor="let brand of brands">
+                            <div class="header__panel__set">
+                                <div class="header__panel__set__item flex-1 flex justify-center pl-1 pr-1" #brand
+                                    [ngClass]="
+                                        isFirstItem(brand) === 'true'
+                                        ? 'header__panel__set__item--active'
+                                        : 'header__panel__set__item--default'
+                                    ">
+                                    {{ brand[0].toUpperCase() }}
+                                </div>
+                                <mat-checkbox #brandCheckbox (change)="onBrandSelected(brandCheckbox, brand)"
+                                    class="header__panel__set__item flex-[11] .mat-checkbox pl-2">
+                                    {{ brand }}
+                                </mat-checkbox>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </mat-expansion-panel>
         </div>
-        </mat-expansion-panel>
-    </div>
-    <button class="search">
-        <img class="w-6 h-6" src="assets/search_icon.svg" alt="brand_icon" />
-        <p>Search</p>
-    </button>
+        <div class="header__filter__item header__panel">
+            <mat-expansion-panel class="mat-elevation-z0" #typeAccordion (opened)="onAccordionOpened(typeAccordion)"
+                (closed)="onAccordionClosed(typeAccordion)" [ngStyle]="{ display: typeDisplayStyle }">
+                <mat-expansion-panel-header class="header__panel__header" [collapsedHeight]="responsiveHeight()"
+                    [expandedHeight]="responsiveHeight()">
+                    <mat-panel-title class="header__panel__title">
+                        <img class="header__panel__icon" src="assets/cartype_icon.svg" alt="cartype_icon" />
+                        <p>Type</p>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="header__panel__description">
+                    <div class="header__panel__scroll">
+                        <div *ngFor="let type of types">
+                            <div class="header__panel__set">
+                                <mat-checkbox #typeCheckbox (change)="onTypeSelected(typeCheckbox, type)"
+                                    class="header__panel__set__item flex-1 flex justify-start .mat-checkbox pl-4">
+                                    {{ type }}
+                                </mat-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </div>
+        <div class="header__filter__item header__panel" #searchBtn [ngStyle]="{ display: searchBtnDisplayStyle }">
+            <button class="header__search">
+                <img class="header__panel__icon" src="assets/search_icon.svg" alt="brand_icon" />
+                <div>
+                    <p>Search</p>
+                </div>
+            </button>
+        </div>
     </div>
 </div>
