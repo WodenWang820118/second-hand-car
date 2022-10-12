@@ -81,7 +81,7 @@ export class HeaderComponent {
   }
 
   onAccordionOpened(accordion: any) {
-    if (this.windowService.windowRef.outerWidth <= 480) {
+    if (this.windowService.windowRef.innerWidth <= 480) {
       if (accordion.id === 'cdk-accordion-child-0') {
         this.typeDisplayStyle = 'none';
         this.searchBtnDisplayStyle = 'none';
@@ -92,7 +92,7 @@ export class HeaderComponent {
   }
 
   onAccordionClosed(accordion: any) {
-    if (this.windowService.windowRef.outerWidth <= 480) {
+    if (this.windowService.windowRef.innerWidth <= 480) {
       if (accordion.id === 'cdk-accordion-child-0') {
         this.typeDisplayStyle = '';
         this.searchBtnDisplayStyle = '';
