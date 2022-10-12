@@ -8,4 +8,37 @@
         border-radius: 6px;
         margin-bottom: 10px;
     }
+
+    &__main {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        padding: 0 64px;
+        gap: 140px;
+
+        // TODO: maybe use @mixin for this
+        @include rwd($medium-1) {
+            display: block;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+
+            //sidebar
+            &__item:nth-child(1) {
+                position: absolute;
+                width: 100%;
+                left: 0px;
+                z-index: 1;
+            }
+        }
+
+        &__item:nth-child(1) {
+            flex: 1 1 0;
+        }
+
+        &__item:nth-child(2) {
+            flex: 2 1 0;
+        }
+    }
 }

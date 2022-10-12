@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Car } from '../../services/car.model';
 import { CarsFilterService } from '../../services/cars-filter.service';
 import { CarsInfoService } from '../../services/cars-info.service';
+import { WindowService } from '../../services/window.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -107,7 +108,8 @@ export class SidebarComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private carsService: CarsInfoService,
-              private carsFilterService: CarsFilterService) {
+              private carsFilterService: CarsFilterService,
+              public windowService: WindowService) {
     this.carsService.getUpdateApiRequest().subscribe(request => {
       this.apiRequest = request;
     });
@@ -143,5 +145,15 @@ export class SidebarComponent implements OnInit {
       console.log(result);
       this.carsService.setCarsInfoSubject(result);
     });
+  }
+
+  hideSidebar(toggle: HTMLImageElement, sidebar: HTMLElement) {
+    sidebar.classList.toggle('sidebar__passive');
+    toggle.classList.toggle('sidebar__passive');
+  }
+
+  showSidebar(toggle: HTMLImageElement, sidebar: HTMLElement) {
+    toggle.classList.toggle('sidebar__passive');
+    sidebar.classList.toggle('sidebar__passive');
   }
 }

@@ -5,16 +5,9 @@
         margin: 0;
     }
 
-    .mat-expansion-panel-body {
-        padding: 0;
-        height: auto;
-        overflow: scroll;
-        background-color: $ci-second-gold3;
-    }
-
     @include rwd($small-1) {
         .mat-expansion-panel-header {
-            padding: 0 16px;
+            padding: 16px 16px;
         }
     }
 }

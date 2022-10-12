@@ -68,6 +68,13 @@
     &__panel {
         @extend .mat-expansion-panel;
         .mat-expansion-panel {
+            .mat-expansion-panel-body {
+                padding: 0;
+                height: auto;
+                overflow: auto;
+                background-color: $ci-second-gold3;
+            }
+
             .mat-expansion-indicator {
                 transition: transform .3s ease;
         
