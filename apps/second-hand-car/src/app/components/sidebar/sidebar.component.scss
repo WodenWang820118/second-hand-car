@@ -4,14 +4,15 @@
     &__panel {
         width: 100%;
         background-color: white;
-        box-shadow: 3px 0px 68px rgba(0, 0, 0, 0.25);
 
         // TODO: could be a better way to do this
         @include rwd($medium-1) {
+            box-shadow: 3px 0px 68px rgba(0, 0, 0, 0.25);
             width: 40%;
         }
 
         @include rwd($small-1) {
+            box-shadow: 3px 0px 68px rgba(0, 0, 0, 0.25);
             width: 100%;
         }
 
