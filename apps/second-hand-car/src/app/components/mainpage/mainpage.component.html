@@ -2,9 +2,9 @@
 <div class="main-page" *ngIf="auth.user$ | async as user; else notFound">
     <app-navigation></app-navigation>
     <app-header></app-header>
-    <div class="flex">
-        <app-sidebar class="w-1/3"></app-sidebar>
-        <div class="w-2/3 pr-16">
+    <div class="main-page__main">
+        <app-sidebar class="main-page__main__item"></app-sidebar>
+        <div class="main-page__main__item pt-8">
             <div class="flex justify-end">
                 <select #selected class="main-page__ordering" name="" id="" (change)="sortBy(selected.value)">
                     <option>依瀏覽次數高到低排序</option>
