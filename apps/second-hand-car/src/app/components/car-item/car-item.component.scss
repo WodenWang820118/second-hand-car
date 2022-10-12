@@ -1,9 +1,36 @@
 @import '../../app.component.scss';
 
 .car {
+    // TODO: write the card component style into SASS
+    &__info {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 48px;
+
+        @include rwd($small-1) {
+            flex-direction: column;
+        }
+
+        &__item {
+            flex: 1 1 0;
+        }
+    }
+
     &__image {
         background-color: $white;
     }
+
+    .favorite {
+        &--default {
+            color: white;
+        }
+        
+        &--active {
+            color: black;
+        }
+    }
+
     .mat-card {
         background-color: $ci-second-gold2;
     }
